@@ -1,0 +1,6 @@
+.list-group li{
+    display: none;
+}
+.show li{
+    display: block;
+}
