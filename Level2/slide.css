@@ -1,0 +1,16 @@
+img{
+    width: 500px;
+    height: 250px;
+}
+.slide-container{
+    width: 300vw;
+    display: flex;
+    justify-content:space-around;
+    transition: all 0.5s;
+}
+.slide-box{
+    width: 100vw;
+}
+.slide-box img{
+    width: 100%;
+}

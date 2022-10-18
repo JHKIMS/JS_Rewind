@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+    <link rel="stylesheet" href="slide.css">
+</head>
+
+<body>
+
+    <div style="overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="/img/2022-23-NBA-REGULAR-SEASON-SCHEDULE.webp">
+            </div>
+            <div class="slide-box">
+                <img src="/img/nba-basketball-iso.jpg">
+            </div>
+            <div class="slide-box">
+                <img src="/img/nba_preview.webp">
+            </div>
+        </div>
+    </div>
+
+    <button class="slide1">1</button>
+    <button class="slide2">2</button>
+    <button class="slide3">3</button>
+    <button class="next">다음</button>
+
+    <script>
+        let now = 1;
+        document.querySelector('.next').addEventListener('click', function(){
+                document.querySelector('.slide-container').style.transform = `translateX(-${now}00vw)`;    
+                now++;
+        });
+        // 잔버그 수정 필요. 1,2,3버튼 누르고 다음버튼 클릭시 정상동작X
+
+        document.querySelector('.slide1').addEventListener('click', function () {
+            document.querySelector('.slide-container').style.transform = 'translateX(0vw)';
+        });
+        document.querySelector('.slide2').addEventListener('click', function () {
+            document.querySelector('.slide-container').style.transform = 'translateX(-100vw)';
+        });
+        document.querySelector('.slide3').addEventListener('click', function () {
+            document.querySelector('.slide-container').style.transform = 'translateX(-200vw)';
+        });
+    </script>
+</body>
+
+</html>
