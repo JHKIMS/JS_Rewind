@@ -47,9 +47,9 @@
         let idVal = document.querySelector('#email').value;
         let passVal = document.querySelector('#passwd').value;
         
-        if(idVal == ''){
+        if(idVal === ''){
             alert('Need To Id');
-        }else if(passVal == ''){
+        }else if(passVal === ''){
             alert('Need To Password');
         }else if(passVal.length<6){
             alert('Too Short Your Password');

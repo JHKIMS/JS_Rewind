@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 3,6,9 게임
+    :: 3의 배수, 9의 배수 체크하기
+        let cal = prompt('FirstQusetion');
+        function calGame(something){
+            if(something%3 === 0 && something%9 != 0){
+                alert('이건 3의 배수 짝');
+            }else if(something%9 === 0){
+                alert('이건 9의 배수 짝짝');
+            }else{
+                alert('이건 3의 배수XXX');
+            }
+        }
+        let result = calGame(cal); */
+
+      /* 한 과목 100점 두 과목 합쳐서 120이면 통과
+        단 한 과목이 40점 미만이면 과락으로 불합격 */
+      let score = prompt("FirstParam");
+      let score2 = prompt("SecondParam");
+      function testGame(first, second) {
+        if (first < 40 || second < 40) {
+          console.log("불합격");
+        } else if (first + second <= 120) {
+          console.log("합격");
+        } else {
+          console.log("불합격");
+        }
+      }
+      let result = testGame(score, score2);
+    </script>
+  </body>
+</html>
