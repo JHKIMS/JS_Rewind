@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소수점 계산</title>
+</head>
+<body>
+    <script>
+        // 분과 초를 차례대로 입력하면 ms단위로 뱉어주는 함수를 만들자(1초 = 1000ms)
+        function testCalc(num1, num2){
+            let num3 = 1000*(num1* 60 +num2);
+            return num3;
+        }
+        console.log(testCalc(1,30));
+
+        // 가격을 넣으면 10%할인된 가격, 두 번째 파라미터는 첫 구매 고객인지를 체크하고, 첫 구매 고객이라면 1.5더 할인.
+        function sale(num1, boolean){
+            let salePrice = num1-(num1*0.1);
+            // console.log(salePrice);
+            if(boolean){
+                 return salePrice = salePrice-1.5;
+            }else{
+                return salePrice;
+            }
+        }
+        console.log(sale(70, true)); 
+    </script>
+</body>
+</html>
