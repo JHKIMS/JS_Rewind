@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jquery_Practice</title>
-    <link rel="stylesheet" href="jquery.css">
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="jquery.css" />
+    <!-- jquery 라이브러리 -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <p class="hello">Jquery 하이~</p>
+    <button id="test-btn">버튼</button>
+
+    <button id="login">로그인</button>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector(".hello").innerHTML = "No~VanilaJS";
+      // $('.hello').html('이건JQUERY');
+
+      document
+        .querySelector("#test-btn")
+        .addEventListener("click", function () {});
+      // $('#test-btn').on('click',function(){})
+
+      // document.querySelector('#login').addEventListener('click', function(){
+      //     document.querySelector('.black-bg').style.display='block';
+      // })
+      document.querySelector('#login').addEventListener('click',function(){
+        document.querySelector('.black-bg').classList.add('show-modal');
+      })
+    </script>
+  </body>
 </html>
