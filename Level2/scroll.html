@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="scroll.css" />
+    <title>Scroll</title>
+  </head>
+
+  <body>
+    <!-- <div class="fontScroll">LogoFont</div> -->
+    <div class="lorem">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam,
+      officiis dolores veritatis doloribus et possimus itaque minima maxime
+      laborum debitis nam illum magni, vitae repellendus adipisci aut. Est
+      praesentium vero veniam unde eligendi at expedita debitis, eius incidunt
+      odio. Nobis doloribus nihil adipisci qui tempora eos, quisquam incidunt
+      voluptate. Hic iure eligendi corrupti voluptatum saepe dicta illo deleniti
+      fugit vero unde, obcaecati architecto sunt sequi iusto ullam, velit
+      exercitationem magni!
+    </div>  
+
+    <div class="sample"></div>
+
+
+
+    <script>
+      // Scroll관련 JS
+      window.addEventListener("scroll", function () {
+        console.log(1);
+        console.log(window.scrollY); //세로스크롤 얼마나 했는지(==pageYOffset)
+        console.log(window.scrollX); //가로스크롤 얼마나 했는지(==pageXOffset)
+        // window.scrollTo(0, 100); // 강제로 스크롤 하기. x좌표, y좌표
+      });
+
+      document.querySelector('.lorem').addEventListener('scroll',function(){
+        let scrollTest = document.querySelector('.lorem').scrollTop;
+        let divRealSize = document.querySelector('.lorem').scrollHeight;
+        let seeDiv = document.querySelector('.lorem').clientHeight;
+        console.log(`Scroll값:${scrollTest} div실제높이:${divRealSize} 눈에보이는DIV:${seeDiv}`);
+        
+        if(scrollTest+seeDiv > divRealSize-100){
+          alert('다읽음')
+        }
+      })
+
+/*       숙제1 페이지 스크롤 100이상이면 로고 폰트사이즈를 줄여라
+      window.addEventListener('scroll',function(){
+        if(window.scrollY>100){
+          document.querySelector(".fontScroll").style.fontSize="40px";
+        }else{
+          document.querySelector(".fontScroll").style.fontSize="50px";
+        }
+      } */
+
+    </script>
+  </body>
+</html>
