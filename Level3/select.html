@@ -25,6 +25,8 @@
     <div id="test"></div>
 
     <script>
+        let pantData = [28, 30, 32, 34]; // 서버에서 보낸 데이터라고 가정
+
         document.querySelectorAll('.form-select')[0].addEventListener('input', function () {
             if (document.querySelectorAll('.form-select')[0].value === '셔츠') {
                 document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
@@ -34,11 +36,19 @@
             }
             else if(document.querySelectorAll('.form-select')[0].value === '바지'){
                 document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
-                let opt2 = `<option>28</option>
-                            <option>30</option>`;
-                document.querySelectorAll('.form-select')[1].innerHTML = opt2;
+                document.querySelectorAll('.form-select')[1].innerHTML='';
+                pantData.forEach(function(a){ //pantData의 크기만큼 반복한다.
+                    let size = `<option>${a}</option>`;
+                    document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', size);
+                })
             }
         })
+
+        // Obj반복문 테스트
+        let objtest = {name:'kim', age:30}
+        for (const key in objtest) {
+          console.log(key);
+        }
 
 /*         document.querySelectorAll('.form-select')[0].value 
             === this.value 
@@ -49,7 +59,6 @@
             let a = document.createElement('p');
             a.innerHTML = '태그 만들기';
             document.querySelector('#test').appendChild(a);
-            
             // Js로 Html 생성하기 - 2
             let b = '<p>2번째 테스트</p>';
             document.querySelector('#test').insertAdjacentHTML('beforeend', b);
