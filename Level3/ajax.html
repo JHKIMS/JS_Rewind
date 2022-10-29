@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax-Html</title>
+    <script   src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+      
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="btn btn-danger" id="more">더보기</button>
+      </div>
+
+    <script>
+
+        // 자바스크립트 get요청방법
+/*         fetch('https://codingapple1.github.io/price.json')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.log(error)
+            }) */
+
+            // 더보기 처리하는 버튼(Get요청)
+            document.querySelector("#more").addEventListener('click', function(){
+                fetch('https://codingapple1.github.io/js/more1.json')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    data.forEach((a, index)=>{
+                    let moreButton =
+                        `<div class="col-sm-4">
+                            <img src="https://via.placeholder.com/600" class="w-100">
+                            <h5>${a.title}</h5>
+                            <p>가격 : ${data[index].price}</p>
+                        </div>`;
+                    document.querySelector('.col-sm-4').insertAdjacentHTML('beforeend', moreButton); 
+                    })
+                    
+                })
+            })
+
+
+        let products = [
+            {id: 0, price: 70000, title: 'Sample Data1'},
+            {id: 1, price: 80000, title: 'Sample Data2'},
+            {id: 2, price: 90000, title: 'Sample Data3'}
+        ]
+
+        products.forEach((a, index)=>{
+            let template = 
+                `<div class="col-sm-4">
+                    <h5>${products[index].title}</h5>
+                    <p>가격 : ${a.price}</p>
+                </div>`;
+                document.querySelector('.row').insertAdjacentHTML('beforeend', template);
+        })
+        
+
+    </script>
+</body>
+</html>
