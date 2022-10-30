@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage_+장바구니</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <script>
+
+        let products = [
+            { id: 0, price: 70000, title: 'Local Storage' },
+            { id: 1, price: 50000, title: 'Spring Field' },
+            { id: 2, price: 30000, title: 'Black Monastery' },
+        ]
+
+        products.forEach((a, i) => {
+            let template =
+                `<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${products[i].title}</h5>
+                <p>가격 : ${products[i].price}</p>
+                <button class="buy">구매</button>
+            </div>`;
+            document.querySelector('.row').insertAdjacentHTML('beforeend', template);
+        })
+
+        localStorage.setItem('이름', '정훈');
+        localStorage.getItem('이름');
+        // localStorage.removeItem('이름');
+
+        // 로컬 스토리지에 object저장
+        let arr = [1, 2, 3];
+        let newArr = JSON.stringify(arr);
+        // JSON.parse(newArr); -- 다시 object로 변환됨
+
+        localStorage.setItem('obj', newArr);
+
+        /* 
+            구매버튼 누르면
+            지금 누른 버튼 윗윗 글자를 가져와서
+            localStorage에 저장
+        */
+        document.querySelectorAll(".buy")[0].addEventListener('click', function (e) {
+            let title = e.target.previousElementSibling.previousElementSibling;
+            let test = title.innerHTML;
+            if (localStorage.getItem('cart') != null) {
+                let out = JSON.parse(localStorage.cart);
+                out.push(test);
+                localStorage.setItem('cart', JSON.stringify(out));
+            }
+            // console.log(test);
+            else localStorage.setItem('cart', JSON.stringify([test]));
+        })
+        document.querySelectorAll(".buy")[1].addEventListener('click', function (e) {
+            let title = e.target.previousElementSibling.previousElementSibling;
+            let test = title.innerHTML;
+            if (localStorage.getItem('cart') != null) {
+                let out = JSON.parse(localStorage.cart);
+                out.push(test);
+                localStorage.setItem('cart', JSON.stringify(out));
+            }
+            // console.log(test);
+            else localStorage.setItem('cart', JSON.stringify([test]));
+        })
+        document.querySelectorAll(".buy")[2].addEventListener('click', function (e) {
+            let title = e.target.previousElementSibling.previousElementSibling;
+            let test = title.innerHTML;
+            if (localStorage.getItem('cart') != null) {
+                let out = JSON.parse(localStorage.cart);
+                out.push(test);
+                localStorage.setItem('cart', JSON.stringify(out));
+            }
+            // console.log(test);
+            else localStorage.setItem('cart', JSON.stringify([test]));
+        })
+
+        
+        //중복코드 줄이기.
+/*         let i = 0;
+        for (let i; i < 3; i++) {
+            document.querySelector(".buy")[i].addEventListener('click', function (e) {
+                let title = e.target.previousElementSibling.previousElementSibling;
+                let test = title.innerHTML;
+                if (localStorage.getItem('cart') != null) {
+                    let out = JSON.parse(localStorage.cart);
+                    out.push(test);
+                    localStorage.setItem('cart', JSON.stringify(out));
+                }
+                // console.log(test);
+                else localStorage.setItem('cart', JSON.stringify([test]));
+            })
+        } */
+
+
+
+
+    </script>
+</body>
+
+</html>
