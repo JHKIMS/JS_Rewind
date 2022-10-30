@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array_Sort,Map,Filter</title>
+</head>
+<body>
+    <button id="price">가격순정렬</button>
+    <button id="sort">글자정렬</button>
+    <button id="six">가격필터버튼</button>
+
+    <script>
+        let testArr = [7, 3, 5, 2, 10, 40];
+        let testArr2 = ['b', 'd', 'c', 'a'];
+        // testArr.sort(); //문자정렬
+        testArr.sort(function(a, b){
+            return a-b;
+            // 숫자정렬 - 내림차순 정렬
+            // b-a를 하면 역순정렬이 된다.
+        })
+        testArr2.sort();
+        console.log(testArr, testArr2);
+
+        // js로 문자역순정렬하기
+        
+
+        let products = [
+            {id:0, price: 70000, title:'Blossom Dress'},
+            {id:1, price: 50000, title:'Spring Field'},
+            {id:2, price: 30000, title:'Black Monastery'},
+        ]
+
+        document.querySelector("#price").addEventListener('click',function(){
+            products.sort(function(a,b){
+                return a.price-b.price;
+            });
+            console.log(products);
+        })
+
+        //필터
+        let filArr = testArr.filter(function(a){
+            return a<4;
+        })
+        //맵
+        let mapArr = testArr.map(function(a){
+            return a*4;
+        })
+        console.log(`필터: ${filArr} 맵: ${mapArr}`);
+
+        let dummy = ['다','나','가','바','으'];
+        dummy.sort(function(a,b){
+            if(a<b) return 1;
+            else return -1;
+        })
+        document.querySelector("#sort").addEventListener('click', function(){
+            products.sort(function(a,b){
+            if(a.title<b.title) return 1;
+            else return -1;
+            })
+        })
+        document.querySelector("#six").addEventListener('click', function(){
+            let sixPrice = products.filter(function(a){
+                return a.price <= 60000
+            })
+            console.log(sixPrice);
+        })
+    </script>
+</body>
+</html>
