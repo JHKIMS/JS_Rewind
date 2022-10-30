@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple_Music</title>
+    <link rel="stylesheet" href="apple.css">
+</head>
+<body style="height: 3000px ;">
+    <div class="card-background">
+        <div class="card-box">
+            <img src="/img/2022-23-NBA-REGULAR-SEASON-SCHEDULE.webp">
+        </div>    
+        <div class="card-box">
+            <img src="/img/nba-basketball-iso.jpg">
+        </div>    
+        <div class="card-box">
+            <img src="/img/nba_preview.webp">
+        </div>    
+    </div>
+    <script>
+        window.addEventListener('scroll',function(){
+            let height = window.scrollY;
+            console.log(height);
+
+            //650~1150까지 스크롤바 내리면 1번째 카드 opacity를 1-0으로 서서히 변경
+            let y=(-1/500)*height+115/50;
+            document.querySelectorAll(".card-box")[0].style.opacity=y;
+        })
+    </script>
+</body>
+</html>
